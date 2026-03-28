@@ -1,275 +1,251 @@
-<!-- @page
-@model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-    // Layout = "_Layout";
-} -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peoples Post Delivery Centre</title>
+    <title>People's Post Delivery Care Centre</title>
 
-    <!-- font awesome cdn link  -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="./site.css">
+    <!-- Link to the CSS file in your Canvas -->
+    <link rel="stylesheet" href="site.css">
+
+    <!-- Tailwind CSS for modern layout utility -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0f766e',
+                        primaryLight: '#14b8a6',
+                        secondary: '#e11d48',
+                        accent: '#f0fdfa',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body>
+<body class="antialiased">
 
+    <!-- Header / Navbar -->
+    <header id="header" class="fixed w-full top-0 z-50 transition-all duration-300 glass-nav shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex items-center gap-2 text-2xl font-bold text-primary">
+                    <i class="fas fa-hand-holding-medical text-secondary"></i>
+                    <span>People's</span>
+                </a>
 
-    <!-- header navbar section start  -->
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-slate-600 hover:text-primary font-medium transition">Home</a>
+                    <a href="#about" class="text-slate-600 hover:text-primary font-medium transition">Facilities</a>
+                    <a href="#doctor" class="text-slate-600 hover:text-primary font-medium transition">Doctors</a>
+                    <a href="#review" class="text-slate-600 hover:text-primary font-medium transition">Reviews</a>
+                    <a href="#contact" class="text-slate-600 hover:text-primary font-medium transition">Contact</a>
+                </nav>
 
-    <header> 
-
-        <!-- logo name  -->
-    <a href="#" class="logo"><span>People's</span></a> 
-
-        <!-- navbar link  -->
-       <nav class="navbar">
-            <!--<ul>
-                <li><a href="#home">home</a></li>
-                <li><a href="#about">about</a></li>
-                <li><a href="#doctor">doctor</a></li>
-                <li><a href="#review">review</a></li>
-                <li><a href="#contact">contact</a></li>
-                <li><a href="#blog">blog</a></li>
-            </ul>-->
-        </nav>
-
-         <div class="fas fa-bars"></div>
-    </header>
-    <!-- header navbar section end  -->
-    <!-- home section start  -->
-
-    <section id="home" class="home">
-
-    <div class="row">
-
-        <!-- home images  -->
-        <!--<div class="banner">
-            <img src="images/Screenshot (215).png" alt="">
-        </div> -->
-
-        <!-- home heading  -->
-        <div class="banner">
-            <h1><span>PEOPLE's</span> POST DELIVERY <span>CARE</span> CENTRE KONDOTTY</h1>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-slate-600 hover:text-primary focus:outline-none text-2xl">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
 
-    <section id="about" class="about">
-
-        <h1 class="heading">about our facility</h1>
-        <h3 class="title">learn and explore our facility</h3>
-
-        <div class="box-container">
-
-            <!-- start here  -->
-            <div class="box">
-                <!-- about images  -->
-                <div class="images">
-                    <img src="images/2025-10-16.webp" alt="">
-                </div>
-
-                <!-- about heading & text  -->
-                <div class="content">
-                    <h3>ambulance services</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab necessitatibus omnis unde dolore suscipit magnam officia. Maxime explicabo qui distinctio?</p>
-                <div class="icons">
-                <a href="https://www.instagram.com/peoples_ayush__care/" class="fab fa-instagram"></a>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#home" class="block px-3 py-3 text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50 rounded-md">Home</a>
+                <a href="#about" class="block px-3 py-3 text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50 rounded-md">Facilities</a>
+                <a href="#doctor" class="block px-3 py-3 text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50 rounded-md">Doctors</a>
+                <a href="#review" class="block px-3 py-3 text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50 rounded-md">Reviews</a>
+                <a href="#contact" class="block px-3 py-3 text-base font-medium text-slate-700 hover:text-primary hover:bg-slate-50 rounded-md">Contact</a>
             </div>
-                </div>
-                
-            </div>
-            
-            <!-- end here  -->
-            <!-- start here  -->
-            <div class="box">
-                <!-- about images  -->
-                <div class="images">
-                    <img src="~/images/Screenshot (215).png" alt="">
-                </div>
+        </div>
+    </header>
 
-                <!-- about heading & text  -->
-                <div class="content">
-                    <h3>emergency rooms</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab necessitatibus omnis unde dolore suscipit magnam officia. Maxime explicabo qui distinctio?</p>
-                    <a href="#"><button class="button">learn more</button></a>
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-20 pb-12 lg:pt-[120px] lg:pb-[90px] min-h-[90vh] flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center">
+        <div class="absolute inset-0 bg-gradient-to-r from-teal-900/90 to-teal-800/70"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center md:text-left">
+            <div class="md:w-2/3 lg:w-1/2">
+                <span class="text-secondary font-semibold uppercase mb-2 block tracking-wider">Welcome to</span>
+                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-6">
+                    People's <br /><span class="text-teal-300">Post Delivery Care</span> <br />Centre Kondotty
+                </h1>
+                <p class="text-teal-50 text-lg mb-8 max-w-lg">Professional medical care and compassionate support for mothers and newborns in a nurturing environment.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/919400268868" class="px-8 py-4 bg-secondary text-white text-center font-semibold rounded-full hover:bg-rose-700 transition shadow-lg">Book Appointment</a>
+                    <a href="#about" class="px-8 py-4 bg-white/10 text-white text-center border border-white/30 font-semibold rounded-full hover:bg-white/20 transition backdrop-blur-sm">Our Facilities</a>
                 </div>
             </div>
-            <!-- end here  -->
-            <!-- start here  -->
-            <div class="box">
-                <!-- about images  -->
-                <div class="images">
-                    <img src ="~/images/Screenshot (215).png" alt="">
-                </div>
-
-                <!-- about heading & text  -->
-                <div class="content">
-                    <h3>free check-ups</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab necessitatibus omnis unde dolore suscipit magnam officia. Maxime explicabo qui distinctio?</p>
-                    @* <a href="#"><button class="button">learn more</button></a> *@
-                </div>
-            </div>
-            <!-- end here  -->
         </div>
     </section>
 
-    <!-- about section end  -->
-    <!-- card section start  -->
+    <!-- About / Facilities -->
+    <section id="about" class="py-20 bg-accent">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-secondary uppercase tracking-widest">Our Services</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-800 mt-2">Specialized Care Facilities</h3>
+                <div class="w-24 h-1 bg-primaryLight mx-auto mt-6 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all p-8 group">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                        <i class="fas fa-ambulance text-3xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Ambulance Services</h3>
+                    <p class="text-slate-600">24/7 dedicated medical transport ensuring safety for both mother and child during transit.</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all p-8 group">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                        <i class="fas fa-procedures text-3xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Emergency Rooms</h3>
+                    <p class="text-slate-600">Fully equipped post-natal emergency units available round the clock with specialized staff.</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all p-8 group">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
+                        <i class="fas fa-stethoscope text-3xl text-primary group-hover:text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Health Check-ups</h3>
+                    <p class="text-slate-600">Regular wellness monitoring and consultations to ensure a smooth recovery process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section id="doctor" class="card">
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-secondary uppercase tracking-widest">Get In Touch</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-slate-800 mt-2">Contact Us</h3>
+                <div class="w-24 h-1 bg-primaryLight mx-auto mt-6 rounded-full"></div>
+            </div>
 
-        <div class="container">
-
-            <h1 class="heading">doctors</h1>
-            <h3 class="title">our professional doctors</h3>
-
-            <div class="box-container">
-
-                <!-- start here  -->
-                <div class="box">
-                    <img src="~/images/Screenshot (215).png" alt="">
-
-                    <div class="content">
-
-                        <!-- card icons  -->
-                        <div class="icons">
-                            <a href="https://www.instagram.com/actorsuriya/" class="fab fa-instagram"></a>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <!-- Contact Info & Form -->
+                <div class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4 p-6 bg-slate-50 rounded-2xl">
+                            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-phone-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Phone</h4>
+                                <p class="text-slate-600 text-sm">+91 94002 68868</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-6 bg-slate-50 rounded-2xl">
+                            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-800">Location</h4>
+                                <p class="text-slate-600 text-sm">Kondotty, Malappuram, Kerala</p>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Contact Form -->
+                    <form class="bg-white border border-slate-100 p-8 rounded-3xl shadow-sm space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Your Name" class="w-full px-5 py-3 rounded-xl bg-slate-50 border-none focus:ring-2 focus:ring-primary outline-none text-slate-700">
+                            <input type="email" placeholder="Your Email" class="w-full px-5 py-3 rounded-xl bg-slate-50 border-none focus:ring-2 focus:ring-primary outline-none text-slate-700">
+                        </div>
+                        <input type="text" placeholder="Subject" class="w-full px-5 py-3 rounded-xl bg-slate-50 border-none focus:ring-2 focus:ring-primary outline-none text-slate-700">
+                        <textarea rows="4" placeholder="Your Message" class="w-full px-5 py-3 rounded-xl bg-slate-50 border-none focus:ring-2 focus:ring-primary outline-none text-slate-700"></textarea>
+                        <button type="submit" class="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-teal-800 transition shadow-lg shadow-primary/20">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Google Map -->
+                <div class="h-[500px] w-full rounded-3xl overflow-hidden shadow-xl border-8 border-slate-50">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3914.471694004381!2d75.96852487574764!3d11.145800288989525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba64f00173ab603%3A0x782ae21c674aca3!2sPEOPLE&#39;S%20POST%20DELIVERY%20CENTRE!5e0!3m2!1sen!2sin!4v1715428000000!5m2!1sen!2sin""
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
     </section>
-    <!-- card section end  -->
-    <!-- review section start  -->
 
-    <section id="review" class="review">
-
-        <h1 class="heading">our patient review</h1>
-        <h3 class="title">what patient says about us</h3>
-
-        <div class="box-container">
-
-            <!-- start here  -->
-            <div class="box">
-                <i class="fas fa-quote-left"></i>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus, sit quam ab at nulla quae excepturi laboriosam mollitia illo eius?</p>
-
-                <div class="images">
-                    <img src="~/images/Screenshot (215).png" alt="">
-
-                    <div class="info">
-                        <h3>john doe</h3>
-                        <span>date : 11 2024</span>
-                    </div>
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-8 border-b border-slate-800 pb-8">
+                <a href="#" class="flex items-center gap-2 text-2xl font-bold text-white">
+                    <i class="fas fa-hand-holding-medical text-secondary"></i>
+                    <span>People's</span>
+                </a>
+                <div class="flex gap-6">
+                    <!--<a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a>-->
+                    <a href="https://www.instagram.com/peoples_ayush__care/" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <!--<a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>-->
                 </div>
             </div>
-            <!-- end here  -->
-            <!-- start here  -->
-            <div class="box">
-                <i class="fas fa-quote-left"></i>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus, sit quam ab at nulla quae excepturi laboriosam mollitia illo eius?</p>
-
-                <div class="images">
-                    <img src="~/images/Screenshot (215).png" alt="">
-
-                    <div class="info">
-                        <h3>john doe</h3>
-                        <span>date : 11 2024</span>
-                    </div>
-                </div>
-            </div>
-            <!-- end here  -->
-            <!-- start here  -->
-            <div class="box">
-                <i class="fas fa-quote-left"></i>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus, sit quam ab at nulla quae excepturi laboriosam mollitia illo eius?</p>
-
-                <div class="images">
-                    <img src="~/images/Screenshot (215).png" alt="">
-
-                    <div class="info">
-                        <h3>john doe</h3>
-                        <span>date : 11 2024</span>
-                    </div>
-                </div>
-            </div>
-            <!-- end here  -->
+            <p class="mb-2">People's Post Delivery Care Centre, Kondotty, Malappuram</p>
+            <p class="text-sm">&copy; 2024 All rights reserved.</p>
         </div>
-    </section>
-    <!-- review section end  -->
-    <!-- contact section start  -->
+    </footer>
 
-    <section id="contact" class="contact">
-
-        <h2 class="heading">contact us</h2>
-        <h3 class="title">you can talk to us any times,</h3>
-
-        <pre><h3>
-            Whatsapp   : 94002 68868
-            Call us    : 94002 68868
-            
-        </h3></pre>
-
-        <div class="row">
-
-            <!-- form images <div class="images">
-                <img src="./images/form.png" alt="">
-            </div>  -->
-            
-
-            
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <div class="floating-action-group relative flex items-center justify-end">
+            <span class="tooltip absolute right-16 bg-slate-800 text-white text-xs font-bold px-3 py-1.5 rounded shadow-lg">WhatsApp Us</span>
+            <a href="https://wa.me/919400268868" target="_blank" class="w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center text-3xl shadow-lg hover:scale-110 transition-all">
+                <i class="fab fa-whatsapp"></i>
+            </a>
         </div>
-
-
-
-
-    </section>
- 
-
-
-    <!-- contact section end  -->
-    
-    <!-- footer section start <h1 class="credit">created by <span>Website. Masters</span> all right reserved.</h1>
-    </section> -->
-    
-    <div class="floating-icons">
-        <a href="https://wa.me/1234567890" class="icon whatsapp" target="_blank">
-            <span class="tooltip">WhatsApp</span>
-            <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" />
-        </a>
-
-        <a href="tel:+1234567890" class="icon call">
-            <span class="tooltip">Call Us</span>
-            <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" />
-        </a>
-
-        <a href="https://maps.google.com/?q=Your+Location" class="icon location" target="_blank">
-            <span class="tooltip">Find Us</span>
-            <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" />
-        </a>
+        <div class="floating-action-group relative flex items-center justify-end">
+            <span class="tooltip absolute right-16 bg-slate-800 text-white text-xs font-bold px-3 py-1.5 rounded shadow-lg">Call Now</span>
+            <a href="tel:+919400268868" class="w-14 h-14 bg-blue-500 text-white rounded-full flex items-center justify-center text-2xl shadow-lg hover:scale-110 transition-all">
+                <i class="fas fa-phone-alt"></i>
+            </a>
+        </div>
     </div>
 
+    <!-- JavaScript Interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileBtn = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const header = document.getElementById('header');
 
+            // Toggle Mobile Navigation
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
 
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
 
-
-
-    <!-- footer section end  -->
-    <!-- jquery cdn link  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <!-- custom js file link  -->
-    <script src="./js/site.js"></script>
+            // Dynamic Header Shadow on Scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-md');
+                } else {
+                    header.classList.remove('shadow-md');
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
